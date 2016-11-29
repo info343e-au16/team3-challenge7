@@ -25,6 +25,21 @@ class App extends React.Component {
 
         );
     }
+    
+    searchPokemon() {
+        var url = BEGINNING_URL;
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+
+            this.setState({
+
+            });
+        });
+}
 
 }
 
