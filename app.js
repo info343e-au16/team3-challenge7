@@ -1,4 +1,4 @@
-var BEGINNING_URL = 'http://pokeapi.co/api/v2/';
+var BEGINNING_URL = 'http://pokeapi.co/api/v2/pokemon/';
 
 class App extends React.Component {
     constructor(props) {
@@ -11,9 +11,9 @@ class App extends React.Component {
     
     componentDidMount() {
         var savedPokemonJSON = localStorage.getItem('saveCart');
-        var savedPokemon = JSON.parse(saveCartJSON);
+        var savedPokemon = JSON.parse(savedPokemonJSON);
 
-        if (saveCart) {
+        if (savedPokemon) {
             this.setState({
                 saved: savedPokemon
             });
@@ -22,19 +22,32 @@ class App extends React.Component {
 
     render() {
         return (
+            <div className="container">
+                <SearchForm 
+                    onSearch={(pokemon) => this.searchPokemon(pokemon)}
 
+                />
+            </div>
         );
     }
     
-    searchPokemon() {
-        var url = BEGINNING_URL;
+    onSearch(e) {
+         e.preventDefault();
+        
+         var queryValue = this.refs.query.value;
+        
+         this.searchPokemon(queryValue);
+    }
+    
+    searchPokemon(pokemon) {
+        var url = BEGINNING_URL + pokemon;
 
         fetch(url)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
-
+            console.log(json);
             this.setState({
 
             });
