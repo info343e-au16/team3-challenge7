@@ -18,6 +18,8 @@ Moreover, you can quickly see the pokemon's evolutionary stages as well. You can
 
 We are planning to use PokeAPI, Bootstrap, React.js, and Create React App
 
+## Create React App README
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
