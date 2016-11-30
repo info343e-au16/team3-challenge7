@@ -1,3 +1,5 @@
+import React from 'react';
+
 class SearchForm extends React.Component {
     render() {
             return (
@@ -22,3 +24,5 @@ class SearchForm extends React.Component {
         this.props.onSearch(queryValue); 
     }
 }
+
+export default SearchForm;
