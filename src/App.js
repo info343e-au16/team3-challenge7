@@ -48,7 +48,7 @@ class App extends Component {
                             types={this.state.types}
                             height={this.state.height}
                             weight={this.state.weight}
-                             onCatch={(name) => this.catchPokemon(name)}
+                            onCatch={(name) => this.catchPokemon(name)}
                         />
                     ) : null
                 }
@@ -60,6 +60,15 @@ class App extends Component {
                         />
                     ) : null
                 }
+
+            {
+                this.state.name ? (
+                    <Catch
+                        catch={this.state.catch}
+                        onClick={(name) => this.searchPokemon(name.toLowerCase())}
+                    /> 
+                ) : null
+            }
           </div>
         );
     }
@@ -71,7 +80,7 @@ class App extends Component {
             catched.push(name);
 
             this.setState({
-                catched: catched
+                catch: catched
             });
 
             var catchedJson = JSON.stringify(catched);
@@ -104,6 +113,7 @@ class App extends Component {
                 weight: weight,
                 stats: stats
             });
+            console.log(this.state);
         });
     }
 

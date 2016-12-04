@@ -5,10 +5,10 @@ class Catch extends React.Component {
         return (
             <ul>
                 {
-                    this.props.saved.map((name) => (
+                    this.props.catch.map((name) => (
                         <li key={name}>
                             <a href="#" onClick={(e) => this.onSaveClick(e, name)}>
-                            {name}
+                                {name}
                             </a>
                         </li>
                     ))
