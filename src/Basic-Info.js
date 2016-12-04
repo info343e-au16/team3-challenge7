@@ -27,7 +27,7 @@ class BasicInfo extends React.Component {
 
 
     catch(e) {
-        this.props.onCatch(this.props.id);
+        this.props.onCatch(this.props.name);
     }
 }
 export default BasicInfo;
