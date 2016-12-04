@@ -110,17 +110,10 @@ class App extends Component {
                         var second = BEGINNING_URL + chain.evolves_to[0].species.name;
                         this.evoPaths = this.addSprite(second, evoPaths);
                         // check for 3rd evolution
-                        if (chain.evolves_to.evolves_to) {
-                            if (chain.evolves_to.evolves_to[0].species) {
-                                var third = BEGINNING_URL + chain.evolves_to.evolves_to[0].species.name;
+                        if (chain.evolves_to[0].evolves_to) {
+                            if (chain.evolves_to[0].evolves_to[0].species) {
+                                var third = BEGINNING_URL + chain.evolves_to[0].evolves_to[0].species.name;
                                 this.evoPaths = this.addSprite(third, evoPaths);
-                                // check for 4th generation {
-                                if (chain.evolves_to.evolves_to.evolves_to) {
-                                    if (chain.evolves_to.evolves_to.evolves_to[0].species) {
-                                        var fourth = BEGINNING_URL + chain.evolves_to.evolves_to.evolves_to[0].species.name;
-                                        this.evoPaths = this.addSprite(fourth, evoPaths);
-                                    }
-                                }
                             }
                         }
                     }
