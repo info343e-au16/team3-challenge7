@@ -4,6 +4,7 @@ import Heading from './Heading.js';
 import SearchForm from './Search-Form.js';
 import BasicInfo from './Basic-Info.js';
 import Stats from './Stats.js';
+import Catch from './Catch.js';
 
 var BEGINNING_URL = 'http://pokeapi.co/api/v2/pokemon/';
 
@@ -12,8 +13,21 @@ class App extends Component {
         super(props);
 
         this.state = {
-            name: null
+            name: null,
+            catch: []
         };
+    }
+    
+    componentDidMount() {
+        var catchJSON = localStorage.getItem('catch');
+        var catchPokemon = JSON.parse(catchJSON);
+
+
+        if (catchPokemon) {
+            this.setState({
+                catch: catchPokemon
+            });
+        }
     }
     
     render() {
@@ -34,6 +48,7 @@ class App extends Component {
                             types={this.state.types}
                             height={this.state.height}
                             weight={this.state.weight}
+                             onCatch={(name) => this.catchPokemon(name)}
                         />
                     ) : null
                 }
@@ -47,8 +62,23 @@ class App extends Component {
                 }
           </div>
         );
-  }
+    }
   
+    catchPokemon(name){
+        var catched = this.state.catch;
+
+        if (catched.indexOf(name) < 0) {
+            catched.push(name);
+
+            this.setState({
+                catched: catched
+            });
+
+            var catchedJson = JSON.stringify(catched);
+            localStorage.setItem('catchPokemon', catchedJson);
+        }
+    }
+
     searchPokemon(pokemon) {
         var url = BEGINNING_URL + pokemon;
 
