@@ -27,9 +27,10 @@ class App extends Component {
             {
                 this.state.name ? (
                     <BasicInfo
-                        id={this.state.id}
+                        id={this.state.id} 
                         name={this.state.name}
                         spritePath={this.state.spritePath}
+                        types={this.state.types}
                         height={this.state.height}
                         weight={this.state.weight}
                     />
@@ -51,12 +52,14 @@ class App extends Component {
             var id = json.id;
             var name = this.capitalizeFirstLetter(json.forms[0].name);
             var spirtePath = json.sprites.front_default;
+            var types = json.types;
             var height = (json.height / 10) + "m";
             var weight = (json.weight / 10) + "kg";
             this.setState({
                 id: id,
                 name: name,
                 spritePath: spirtePath,
+                types: types,
                 height: height,
                 weight: weight
             });
