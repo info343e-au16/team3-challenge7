@@ -23,8 +23,16 @@
   to { transform: rotate(360deg); }
 }
 
+li {
+  list-style: none; 
+}
+
 footer img {
   bottom: 0;
   height: 300px; 
   width: 100%; 
+}
+
+ul a {
+  padding-top: 1px; 
 }

@@ -7,9 +7,12 @@ class Catch extends React.Component {
                 {
                     this.props.catch.map((name) => (
                         <li key={name}>
-                            <a href="#" onClick={(e) => this.onSaveClick(e, name)}>
-                                {name}
-                            </a>
+                            <img src="https://veekun.com/dex/media/items/poke-ball.png" alt="pokeball"/> 
+                            <div>
+                                <a href="#" onClick={(e) => this.onSaveClick(e, name)}>
+                                    {name}
+                                </a>
+                            </div>
                         </li>
                     ))
                 }
