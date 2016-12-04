@@ -1,0 +1,17 @@
+html, body {
+    width: 100%;
+}
+
+table {
+    margin: 0 auto;
+    text-align: left;
+    border-spacing: 5px;
+}
+
+td {
+    padding-right: 1em;
+}
+
+.right {
+    text-align: right;
+}
