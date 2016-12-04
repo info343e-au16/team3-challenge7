@@ -4,12 +4,10 @@ class SearchForm extends React.Component {
     render() {
             return (
                 <form onSubmit={(e) => this.onSearch(e)}>  
-                    <div className="col-lg-6">
-                        <div className="input-group">
-                            <input type="text" ref="query" className="form-control" placeholder="Search for Pokemon"/>
-                            <div className="input-group-btn">
-                                <button className="btn btn-default" type="submit">Go!</button>
-                            </div>
+                    <div>
+                        <input type="text" ref="query" placeholder="Search for Pokemon"/>
+                        <div>
+                            <button type="submit">Go!</button>
                         </div>
                     </div>
                 </form>
