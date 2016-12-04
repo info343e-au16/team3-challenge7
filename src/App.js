@@ -48,7 +48,7 @@ class App extends Component {
                             types={this.state.types}
                             height={this.state.height}
                             weight={this.state.weight}
-                             onCatch={(name) => this.catchPokemon(name)}
+                            onCatch={(name) => this.catchPokemon(name)}
                         />
                     ) : null
                 }
