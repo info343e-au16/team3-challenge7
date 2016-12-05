@@ -26,14 +26,16 @@
   to { transform: rotate(360deg); }
 }
 
+footer img {
+  bottom: 0;
+  height: 300px; 
+  width: 100%; 
+}
+
 table {
   padding-bottom: 40px;
 }
 
 form {
   padding-top: 30px;
-}
-
-audio {
-
 }

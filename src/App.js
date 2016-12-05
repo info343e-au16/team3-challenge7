@@ -5,6 +5,7 @@ import SearchForm from './Search-Form.js';
 import BasicInfo from './Basic-Info.js';
 import Stats from './Stats.js';
 import Catch from './Catch.js';
+import Footer from './Footer.js'
 
 var BEGINNING_URL = 'http://pokeapi.co/api/v2/pokemon/';
 
@@ -69,6 +70,13 @@ class App extends Component {
                     /> 
                 ) : null
             }
+            
+            {
+                this.state.name ? (
+                    <Footer />
+                ) : null
+            }
+
           </div>
         );
     }
