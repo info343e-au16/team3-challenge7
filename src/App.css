@@ -8,8 +8,11 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-image: url("http://wallpapercave.com/wp/5Yn3kwG.jpg");
+  background-size: cover;
+  background-position: center;
+
+  height: 200px;
   padding: 20px;
   color: white;
 }
@@ -27,4 +30,12 @@ footer img {
   bottom: 0;
   height: 300px; 
   width: 100%; 
+}
+
+table {
+  padding-bottom: 40px;
+}
+
+form {
+  padding-top: 30px;
 }
