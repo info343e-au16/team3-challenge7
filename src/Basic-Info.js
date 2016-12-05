@@ -17,18 +17,19 @@ class BasicInfo extends React.Component {
 
                     <p>Height: {this.props.height} | Weight: {this.props.weight}</p>
                     
-                    <audio controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
-
-                     <button onClick={(e) => this.catch(e)}>
-                        Catch!
-                    </button>
-                        
+                    <audio autoPlay controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
+                    <div>
+                     <button
+                            onClick={(e) => this.catch(e)}
+                        >Catch!</button>
+                     </div>
                 </div>
             );
     }
-    
+
     catch(e) {
         this.props.onCatch(this.props.name);
     }
 }
+
 export default BasicInfo;
