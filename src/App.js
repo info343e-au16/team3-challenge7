@@ -7,7 +7,17 @@ import Stats from './Stats.js';
 import Catch from './Catch.js';
 import Footer from './Footer.js'
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {deepOrange500} from 'material-ui/styles/colors';
+
 var BEGINNING_URL = 'http://pokeapi.co/api/v2/pokemon/';
+
+const muiTheme = getMuiTheme({
+    palette: {
+        accent1Color: deepOrange500,
+    },
+});
 
 class App extends Component {
     constructor(props) {
@@ -33,6 +43,7 @@ class App extends Component {
     
     render() {
         return (
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div className="App">
             <div className="App-header">
                 <Heading />
@@ -78,6 +89,7 @@ class App extends Component {
             }
 
           </div>
+      </MuiThemeProvider>
         );
     }
   
