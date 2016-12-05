@@ -83,7 +83,7 @@ class App extends Component {
   
     catchPokemon(name){
         var catched = this.state.catch;
-
+                
         if (catched.indexOf(name) < 0) {
             catched.push(name);
 
