@@ -7,10 +7,8 @@ class Evolutions extends React.Component {
             return (
                 <div> 
                     <h2>Evolutions of {this.props.name}</h2>
-                
-                    <p>{this.props.evoPaths}</p>
                     {
-                        this.props.evoPaths.forEach((evolutions) => (
+                        this.props.evoPaths.map((evolutions) => (
                          <img key={evolutions.name} alt="pokemon sprite" src={evolutions.spritePath} />
                         ))
                     }

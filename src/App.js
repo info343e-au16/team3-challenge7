@@ -85,17 +85,20 @@ class App extends Component {
         });
     }
 
-    addSprite(url, paths) {
-        fetch(url)
+    addSprite(url) {
+        return fetch(url)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
             var spritePath = json.sprites.front_default;
             var name = json.forms[0].name;
-            paths.push({spritePath: spritePath, name: name});
+
+            return {
+                spritePath: spritePath,
+                name: name
+            }
         });
-        return paths;
     }
 
     findEvolutions(chain) {
@@ -103,30 +106,43 @@ class App extends Component {
         if (chain.species) {
             if (chain.species.name) {
                 var first = BEGINNING_URL + chain.species.name;
-                this.evoPaths = this.addSprite(first, evoPaths);
-                // check for 2nd evolution
-                if (chain.evolves_to) {
-                    if (chain.evolves_to[0].species) {
-                        var second = BEGINNING_URL + chain.evolves_to[0].species.name;
-                        this.evoPaths = this.addSprite(second, evoPaths);
-                        // check for 3rd evolution
-                        if (chain.evolves_to[0].evolves_to) {
-                            if (chain.evolves_to[0].evolves_to[0].species) {
-                                var third = BEGINNING_URL + chain.evolves_to[0].evolves_to[0].species.name;
-                                this.evoPaths = this.addSprite(third, evoPaths);
-                            }
+
+                this.addSprite(first)
+                .then((path) => {
+                    evoPaths.push(path);
+                }).then(() => {
+                    // check for 2nd evolution
+                    if (chain.evolves_to) {
+                        if (chain.evolves_to[0].species) {
+                            var second = BEGINNING_URL + chain.evolves_to[0].species.name;
+
+                            return this.addSprite(second)
+                            .then((path) => {
+                                evoPaths.push(path);
+                            });
                         }
                     }
-                }
+                }).then(() => {
+                    // check for 3rd evolution
+                    if (chain.evolves_to[0].evolves_to) {
+                        if (chain.evolves_to[0].evolves_to[0].species) {
+                            var third = BEGINNING_URL + chain.evolves_to[0].evolves_to[0].species.name;
+
+                            return this.addSprite(third)
+                            .then((path) => {
+                                evoPaths.push(path);
+                            });
+                        }
+                    }
+                }).then(() => {
+                    this.setState({
+                        evoPaths: evoPaths
+                    });
+                })
             }
         }
-        this.setState({
-            evoPaths: evoPaths
-        });
-        console.log(evoPaths);
-        console.log(evoPaths[0]);
     }
-    
+
     fetchEvoUrl(url) {
         fetch(url)
         .then((response) => {
