@@ -9,7 +9,7 @@ class SearchForm extends React.Component {
                         <div className="input-group">
                             <input type="text" ref="query" className="form-control" placeholder="Search for Pokemon"/>
                             <div className="input-group-btn">
-                                <RaisedButton label="Go!" type="submit" />
+                                <RaisedButton primary={true} label="Go!" type="submit" />
                             </div>
                         </div>
                     </div>

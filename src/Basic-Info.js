@@ -1,18 +1,19 @@
 import React from 'react';
-
 class BasicInfo extends React.Component {
     render() {
             return (
                 <div> 
-                    <h2>NO. {this.props.id} | {this.props.name}</h2>
+                    <h2>No. {this.props.id} | {this.props.name}</h2>
                 
-                    <img alt="pokemon sprite" src={this.props.spritePath} />
+                    <img alt={this.props.name + " sprite"} src={this.props.spritePath} />
                 
+                    <div>
                     {
-                        this.props.types.map((types) => (
-                         <img key={this.props.id + types.type.name} alt="pokemon type" src={"https://veekun.com/dex/media/types/en/" + types.type.name + ".png"} />
+                        this.props.types.reverse().map((types) => (
+                         <img key={this.props.id + types.type.name} alt={types.type.name + " type"} src={"https://veekun.com/dex/media/types/en/" + types.type.name + ".png"} />
                         ))
                     }
+                    </div>
 
                     <p>Height: {this.props.height} | Weight: {this.props.weight}</p>
                     
