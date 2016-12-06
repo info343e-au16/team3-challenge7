@@ -90,6 +90,7 @@ class App extends Component {
                             id={this.state.id} 
                             name={this.state.name}
                             evoPaths={this.state.evoPaths}
+                            onPokeClick={(name) => this.searchPokemon(name)}
                         />
                     ) : null
                 }
@@ -183,6 +184,11 @@ class App extends Component {
             var spritePath = json.sprites.front_default;
             var name = json.forms[0].name;
 
+            // pichu case since name is weird in API
+            if (name === 'pichu-spiky-eared') {
+                name = 'pichu';
+            }
+
             return {
                 spritePath: spritePath,
                 name: name
@@ -245,6 +251,7 @@ class App extends Component {
     }
 
     fetchSpeciesUrl(url) {
+        console.log(url);
         fetch(url)
         .then((response) => {
             return response.json();
@@ -264,6 +271,10 @@ class App extends Component {
     }
   
     searchPokemon(pokemon) {
+        this.setState({
+            evoPaths: null
+        })
+
         var url = BEGINNING_URL + pokemon;
         var speciesUrl  = SPECIES_URL + pokemon;
 
