@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchForm extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class SearchForm extends React.Component {
                         <div className="input-group">
                             <input type="text" ref="query" className="form-control" placeholder="Search for Pokemon"/>
                             <div className="input-group-btn">
-                                <button className="btn btn-default" type="submit">Go!</button>
+                                <RaisedButton primary={true} label="Go!" type="submit" />
                             </div>
                         </div>
                     </div>
