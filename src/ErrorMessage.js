@@ -10,4 +10,4 @@ class ErrorMessage extends React.Component {
     }
 }
 
-export default FlavorText;
+export default ErrorMessage;
