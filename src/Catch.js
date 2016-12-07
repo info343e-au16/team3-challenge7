@@ -9,7 +9,7 @@ class Catch extends React.Component {
 
         return (
             <ul>
-            <h2>Pokedex</h2>
+            <h2>My Pokemon</h2>
                 {
                     this.props.catch.map((name) => (
                         <li key={name}>
@@ -19,6 +19,7 @@ class Catch extends React.Component {
                                     {name}
                                 </a>
                             </div>
+                            <button id="delete-button" onClick={() => this.onDeleteClick(name)}>Delete</button>
                         </li>
                     ))
                 }
@@ -32,5 +33,9 @@ class Catch extends React.Component {
 
             this.props.onClick(name);
     }
+
+     onDeleteClick(name) {
+         this.props.onDeleteClick(name);
+     }
 }
 export default Catch;

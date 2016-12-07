@@ -100,6 +100,7 @@ class App extends Component {
                 <Catch
                     catch={this.state.catch}
                     onClick={(name) => this.searchPokemon(name.toLowerCase())}
+                    onDeleteClick={(name) => this.removePokemon(name)}
                 /> 
             
                 {
@@ -130,6 +131,24 @@ class App extends Component {
                 catch: catched
             });
 
+            var catchedJson = JSON.stringify(catched);
+            localStorage.setItem('catchPokemon', catchedJson);
+        }
+    }
+
+    removePokemon(name) {
+        var catched = this.state.catch; 
+
+
+        if (catched.indexOf(name) > -1) {
+            var index = catched.indexOf(name);
+            catched.splice(index, 1);
+
+                this.setState({
+                    catch: catched
+                });
+
+            // Save to local storage
             var catchedJson = JSON.stringify(catched);
             localStorage.setItem('catchPokemon', catchedJson);
         }
