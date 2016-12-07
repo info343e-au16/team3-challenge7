@@ -8,6 +8,7 @@ import FlavorText from './Flavor-Text.js';
 import Stats from './Stats.js';
 import Catch from './Catch.js';
 import Footer from './Footer.js'
+import ErrorMessage from './ErrorMessage.js'
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -99,11 +100,18 @@ class App extends Component {
                             catch={this.state.catch}
                             onClick={(name) => this.searchPokemon(name.toLowerCase())}
                         /> 
-               
             
                 {
                     this.state.name ? (
                         <Footer />
+                    ) : null
+                }
+
+                {
+                    this.state.errorMessage ? (
+                        <ErrorMessage 
+                            message={this.state.errorMessage}
+                        />
                     ) : null
                 }
           </div>
@@ -139,7 +147,6 @@ class App extends Component {
             var height = (json.height / 10) + "m";
             var weight = (json.weight / 10) + "kg";
             var stats = this.calculateTotalStats(json.stats);
-            console.log(stats);
             this.setState({
                 id: id,
                 name: name,
@@ -214,6 +221,10 @@ class App extends Component {
                                 evoPaths.push(path);
                             });
                         }
+                    } else {
+                        this.setState({
+                            errorMessage: '<strong>Sorry!</strong> This pokemon does not have 3 evolutions, so its evolutions are not supported by our site'
+                        });
                     }
                 }).then(() => {
                     // check for 3rd evolution
@@ -249,7 +260,6 @@ class App extends Component {
     }
 
     fetchSpeciesUrl(url) {
-        console.log(url);
         fetch(url)
         .then((response) => {
             return response.json();
@@ -270,7 +280,8 @@ class App extends Component {
   
     searchPokemon(pokemon) {
         this.setState({
-            evoPaths: null
+            evoPaths: null,
+            errorMessage: null
         })
 
         var url = BEGINNING_URL + pokemon;
