@@ -55,7 +55,7 @@ class App extends Component {
                 <Heading />
             </div>
                 <SearchForm 
-                    dataSource = {this.state.dataSource}
+                    dataSource={this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
                 {
