@@ -36,7 +36,7 @@ class App extends Component {
     }
     
     componentDidMount() {
-        var catchJSON = localStorage.getItem('catch');
+        var catchJSON = localStorage.getItem('catchPokemon');
         var catchPokemon = JSON.parse(catchJSON);
 
         if (catchPokemon) {
@@ -94,14 +94,12 @@ class App extends Component {
                         />
                     ) : null
                 }
-                {
-                    this.state.name ? (
+               
                         <Catch
                             catch={this.state.catch}
                             onClick={(name) => this.searchPokemon(name.toLowerCase())}
                         /> 
-                    ) : null
-                }
+               
             
                 {
                     this.state.name ? (
