@@ -8,6 +8,7 @@ import FlavorText from './Flavor-Text.js';
 import Stats from './Stats.js';
 import Catch from './Catch.js';
 import Footer from './Footer.js';
+import ErrorMessage from './ErrorMessage.js'
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -106,8 +107,16 @@ class App extends Component {
                         <Footer />
                     ) : null
                 }
+
+                {
+                    this.state.errorMessage ? (
+                        <ErrorMessage 
+                            message={this.state.errorMessage}
+                        />
+                    ) : null
+                }
           </div>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
         );
     }
   
@@ -139,7 +148,6 @@ class App extends Component {
             var height = (json.height / 10) + "m";
             var weight = (json.weight / 10) + "kg";
             var stats = this.calculateTotalStats(json.stats);
-            console.log(stats);
             this.setState({
                 id: id,
                 name: name,
@@ -148,6 +156,11 @@ class App extends Component {
                 height: height,
                 weight: weight,
                 stats: stats 
+            });
+        })
+        .catch((error) => {
+            this.setState({
+                errorMessage: 'Sorry, this pokemon is not in the API!'
             });
         });
     }
@@ -196,10 +209,10 @@ class App extends Component {
 
     findEvolutions(chain) {
         var evoPaths = [];
+
         if (chain.species) {
             if (chain.species.name) {
                 var first = BEGINNING_URL + chain.species.name;
-
                 this.addSprite(first)
                 .then((path) => {
                     evoPaths.push(path);
@@ -207,20 +220,21 @@ class App extends Component {
                     // check for 2nd evolution
                     if (chain.evolves_to) {
                         if (chain.evolves_to[0].species) {
-                            var second = BEGINNING_URL + chain.evolves_to[0].species.name;
+                            if (chain.evolves_to[0].species.name) {
+                                var second = BEGINNING_URL + chain.evolves_to[0].species.name;
+                            } 
 
                             return this.addSprite(second)
                             .then((path) => {
                                 evoPaths.push(path);
                             });
                         }
-                    }
+                    } 
                 }).then(() => {
                     // check for 3rd evolution
                     if (chain.evolves_to[0].evolves_to) {
                         if (chain.evolves_to[0].evolves_to[0].species) {
                             var third = BEGINNING_URL + chain.evolves_to[0].evolves_to[0].species.name;
-
                             return this.addSprite(third)
                             .then((path) => {
                                 evoPaths.push(path);
@@ -249,7 +263,6 @@ class App extends Component {
     }
 
     fetchSpeciesUrl(url) {
-        console.log(url);
         fetch(url)
         .then((response) => {
             return response.json();
@@ -270,7 +283,8 @@ class App extends Component {
   
     searchPokemon(pokemon) {
         this.setState({
-            evoPaths: null
+            evoPaths: null,
+            errorMessage: null
         })
 
         var url = BEGINNING_URL + pokemon;
