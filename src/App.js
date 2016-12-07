@@ -85,6 +85,15 @@ class App extends Component {
                         />
                     ) : null
                 }
+
+                {
+                    this.state.errorMessage ? (
+                        <ErrorMessage 
+                            message={this.state.errorMessage}
+                        />
+                    ) : null
+                }
+
                 {
                     this.state.evoPaths ? (
                         <Evolutions
@@ -95,6 +104,7 @@ class App extends Component {
                         />
                     ) : null
                 }
+
                 {
                     this.state.name ? (
                         <Catch
@@ -110,13 +120,6 @@ class App extends Component {
                     ) : null
                 }
 
-                {
-                    this.state.errorMessage ? (
-                        <ErrorMessage 
-                            message={this.state.errorMessage}
-                        />
-                    ) : null
-                }
           </div>
         </MuiThemeProvider>
         );
@@ -248,6 +251,11 @@ class App extends Component {
                         evoPaths: evoPaths
                     });
                 })
+                .catch((error) => {
+                    this.setState({
+                        errorMessage: 'Sorry, this pokemon has abnormal/no evolutions!'
+                    });
+                });
             }
         }
     }
