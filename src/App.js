@@ -100,7 +100,6 @@ class App extends Component {
                             catch={this.state.catch}
                             onClick={(name) => this.searchPokemon(name.toLowerCase())}
                         /> 
-                
             
                 {
                     this.state.name ? (
