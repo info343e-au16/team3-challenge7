@@ -3,7 +3,7 @@ import React from 'react';
 class Catch extends React.Component {
     render() {
 
-        if(this.props.catch.length == 0){
+        if(this.props.catch.length === 0){
             return null;
         }
 
