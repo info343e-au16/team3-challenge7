@@ -9,7 +9,7 @@ class Stats extends React.Component {
                     <table>
                         <tbody>
                             {
-                            this.props.stats.reverse().map((stats) => (
+                            this.props.stats.map((stats) => (
                                 <tr key={stats.stat.name}>
                                     <td>{stats.stat.name}</td>
                                     <td className="right">{stats.base_stat}</td>

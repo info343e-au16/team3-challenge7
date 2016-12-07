@@ -7,7 +7,7 @@ import Evolutions from './Evolutions.js';
 import FlavorText from './Flavor-Text.js';
 import Stats from './Stats.js';
 import Catch from './Catch.js';
-import Footer from './Footer.js'
+import Footer from './Footer.js';
 import ErrorMessage from './ErrorMessage.js'
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -32,7 +32,7 @@ class App extends Component {
             name: null,
             catch: [],
             flavorText: null,
-            evoPaths: null
+            evoPaths: null,
         };
     }
     
@@ -55,6 +55,7 @@ class App extends Component {
                 <Heading />
             </div>
                 <SearchForm 
+                    dataSource = {this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
                 {
@@ -95,11 +96,11 @@ class App extends Component {
                         />
                     ) : null
                 }
-               
-                        <Catch
-                            catch={this.state.catch}
-                            onClick={(name) => this.searchPokemon(name.toLowerCase())}
-                        /> 
+
+                <Catch
+                    catch={this.state.catch}
+                    onClick={(name) => this.searchPokemon(name.toLowerCase())}
+                /> 
             
                 {
                     this.state.name ? (
