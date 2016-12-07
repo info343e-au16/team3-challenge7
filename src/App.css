@@ -52,5 +52,15 @@ form {
   border-radius: 3px;
   border: none;
   background-color: rgb(255, 0, 0);
-  opacity:0.4;
+  opacity: 0.4;
+  padding: 15px;
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  color: white;
+}
+
+.evoSprite {
+  cursor: pointer;
 }

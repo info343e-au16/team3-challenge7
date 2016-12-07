@@ -118,7 +118,7 @@ class App extends Component {
                     ) : null
                 }
           </div>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
         );
     }
   
@@ -158,6 +158,11 @@ class App extends Component {
                 height: height,
                 weight: weight,
                 stats: stats 
+            });
+        })
+        .catch((error) => {
+            this.setState({
+                errorMessage: 'Sorry, this pokemon is not in the API!'
             });
         });
     }
@@ -206,10 +211,10 @@ class App extends Component {
 
     findEvolutions(chain) {
         var evoPaths = [];
+
         if (chain.species) {
             if (chain.species.name) {
                 var first = BEGINNING_URL + chain.species.name;
-
                 this.addSprite(first)
                 .then((path) => {
                     evoPaths.push(path);
@@ -217,24 +222,21 @@ class App extends Component {
                     // check for 2nd evolution
                     if (chain.evolves_to) {
                         if (chain.evolves_to[0].species) {
-                            var second = BEGINNING_URL + chain.evolves_to[0].species.name;
+                            if (chain.evolves_to[0].species.name) {
+                                var second = BEGINNING_URL + chain.evolves_to[0].species.name;
+                            } 
 
                             return this.addSprite(second)
                             .then((path) => {
                                 evoPaths.push(path);
                             });
                         }
-                    } else {
-                        this.setState({
-                            errorMessage: '<strong>Sorry!</strong> This pokemon does not have 3 evolutions, so its evolutions are not supported by our site'
-                        });
-                    }
+                    } 
                 }).then(() => {
                     // check for 3rd evolution
                     if (chain.evolves_to[0].evolves_to) {
                         if (chain.evolves_to[0].evolves_to[0].species) {
                             var third = BEGINNING_URL + chain.evolves_to[0].evolves_to[0].species.name;
-
                             return this.addSprite(third)
                             .then((path) => {
                                 evoPaths.push(path);
