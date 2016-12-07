@@ -15,7 +15,7 @@ people who are interested in pokemon. Specific features we will have are the abi
 Moreover, you can quickly see the pokemon's evolutionary stages as well. You can also quickly switch between the different evolution stages. 
 
 If a pokemon has three evolutions, the pokemon evolutions will show below. There will be a hover over the evoluntions where you can click on the
-image and it will bring you to the pokemon at that evolution stage. Also, an error message will show if the pokemon does not have three evolutions.  
+image and it will bring you to the pokemon at that evolution stage. 
 
 ## List of libraries, frameworks, and APIs we will use:
 
