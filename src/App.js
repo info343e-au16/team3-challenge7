@@ -37,7 +37,7 @@ class App extends Component {
     }
     
     componentDidMount() {
-        var catchJSON = localStorage.getItem('catch');
+        var catchJSON = localStorage.getItem('catchPokemon');
         var catchPokemon = JSON.parse(catchJSON);
 
         if (catchPokemon) {

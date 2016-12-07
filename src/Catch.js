@@ -2,8 +2,14 @@ import React from 'react';
 
 class Catch extends React.Component {
     render() {
+
+        if(this.props.catch.length === 0){
+            return null;
+        }
+
         return (
             <ul>
+            <h2>Pokedex</h2>
                 {
                     this.props.catch.map((name) => (
                         <li key={name}>
