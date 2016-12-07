@@ -1,28 +1,39 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import AutoComplete from 'material-ui/AutoComplete';
+
+// https://github.com/sindresorhus/pokemon
+import PokemonNames from './pokemon-names.json';
 
 class SearchForm extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dataSource: PokemonNames
+        };
+    }
+    
     render() {
             return (
-                <form onSubmit={(e) => this.onSearch(e)}>  
-                    <div className="col-lg-6">
-                        <div className="input-group">
-                            <input type="text" ref="query" className="form-control" placeholder="Search for Pokemon"/>
-                            <div className="input-group-btn">
-                                <RaisedButton primary={true} label="Go!" type="submit" />
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <div>
+                <AutoComplete
+                  hintText="Search by Name"
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                  filter={AutoComplete.caseInsensitiveFilter}
+                  maxSearchResults={5}
+                  onNewRequest={(queryValue) => this.onSearch(queryValue)}
+                /> 
+                <RaisedButton primary={true} label="Go!" type="submit" />
+                </div>
             );
     }
 
-    onSearch(e){
-        e.preventDefault();
+    onSearch(queryValue){
+        //var queryValue = this.refs.query.value;
 
-        var queryValue = this.refs.query.value;
-
-        this.props.onSearch(queryValue); 
+        this.props.onSearch(queryValue.toLowerCase() + "/"); 
     }
 }
 
