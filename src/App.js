@@ -106,15 +106,6 @@ class App extends Component {
                     ) : null
                 }
 
-                {
-                    this.state.name ? (
-                        <Catch
-                            catch={this.state.catch}
-                            onClick={(name) => this.searchPokemon(name.toLowerCase())}
-                        /> 
-                    ) : null
-                }
-
                 <Catch
                     catch={this.state.catch}
                     onClick={(name) => this.searchPokemon(name.toLowerCase())}
