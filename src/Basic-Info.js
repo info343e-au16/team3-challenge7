@@ -19,7 +19,7 @@ class BasicInfo extends React.Component {
 
                     <p>Height: {this.props.height} | Weight: {this.props.weight}</p>
                     
-                    <audio controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
+                    <audio autoPlay controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
                     <div>
                      <RaisedButton secondary={true} label="Catch!"
                             onClick={(e) => this.catch(e)} />
