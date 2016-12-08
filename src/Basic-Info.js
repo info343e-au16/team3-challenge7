@@ -1,13 +1,14 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Row, Col } from 'react-materialize';
 
 class BasicInfo extends React.Component {
     render() {
             return (
-                <div> 
-                    <h2>No. {this.props.id} | {this.props.name}</h2>
+                <div className="container"> 
+                    <h2>{this.props.name}</h2>
                 
-                    <img alt={this.props.name + " sprite"} src={this.props.spritePath} />
+                    <img alt={this.props.name + " sprite"} src={this.props.spritePath} />              
                 
                     <div>
                     {

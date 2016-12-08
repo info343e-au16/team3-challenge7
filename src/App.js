@@ -14,6 +14,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {deepOrange500} from 'material-ui/styles/colors';
 
+import { Row, Col } from 'react-materialize';
+
 var BASE_URL = 'http://pokeapi.co/api/v2/';
 var BEGINNING_URL = BASE_URL + 'pokemon/';
 var SPECIES_URL = BASE_URL + 'pokemon-species/';

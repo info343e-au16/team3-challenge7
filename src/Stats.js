@@ -4,7 +4,7 @@ import './Stats.css';
 class Stats extends React.Component {
     render() {
             return (
-                <div> 
+                <div className="container"> 
                     <h2>Stats</h2>
                     <table>
                         <tbody>

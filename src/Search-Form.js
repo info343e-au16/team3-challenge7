@@ -16,7 +16,7 @@ class SearchForm extends React.Component {
     
     render() {
             return (
-                <div>
+                <div className="container">
                 <AutoComplete
                   hintText="Search by Name"
                   dataSource={this.state.dataSource}
