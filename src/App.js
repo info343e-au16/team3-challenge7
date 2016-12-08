@@ -76,6 +76,15 @@ class App extends Component {
                                 />
                             ) : null
                         }
+                        
+                        {
+                            this.state.name ? (
+                                <FlavorText
+                                    flavorText={this.state.flavorText}
+                                />
+                            ) : null
+                        }  
+
                     </Col>
                     <Col s={12} m={6}>
                         <Catch
@@ -86,38 +95,35 @@ class App extends Component {
                     </Col>
                 </Row>
 
-                {
-                    this.state.name ? (
-                        <FlavorText
-                            flavorText={this.state.flavorText}
-                        />
-                    ) : null
-                }
-
-                {
-                    this.state.name ? (
-                        <Stats
-                            id={this.state.id}
-                            stats={this.state.stats}
-                        />
-                    ) : null
-                }
+                <Row>
+                    <Col s={12} l={6}>
+                        {
+                            this.state.name ? (
+                                <Stats
+                                    id={this.state.id}
+                                    stats={this.state.stats}
+                                />
+                            ) : null
+                        }
+                    </Col>
+                    <Col s={12} l={6}>
+                        {
+                            this.state.evoPaths ? (
+                                <Evolutions
+                                    id={this.state.id} 
+                                    name={this.state.name}
+                                    evoPaths={this.state.evoPaths}
+                                    onPokeClick={(name) => this.searchPokemon(name)}
+                                />
+                            ) : null
+                        }
+                    </Col>
+                </Row>
 
                 {
                     this.state.errorMessage ? (
                         <ErrorMessage 
                             message={this.state.errorMessage}
-                        />
-                    ) : null
-                }
-
-                {
-                    this.state.evoPaths ? (
-                        <Evolutions
-                            id={this.state.id} 
-                            name={this.state.name}
-                            evoPaths={this.state.evoPaths}
-                            onPokeClick={(name) => this.searchPokemon(name)}
                         />
                     ) : null
                 }
