@@ -1,6 +1,10 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
+const style = {
+  margin: 12,
+};
+
 class Catch extends React.Component {
     render() {
 
@@ -21,7 +25,7 @@ class Catch extends React.Component {
                                         {name}
                                     </a>
                                 </div>
-                                <RaisedButton label="Release" onClick={(e) => this.onDeleteClick(name)} />
+                                <RaisedButton style={style} label="Release" onClick={(e) => this.onDeleteClick(name)} />
                             </li>
                         ))
                     }

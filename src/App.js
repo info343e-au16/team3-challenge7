@@ -56,10 +56,12 @@ class App extends Component {
             <div className="App-header">
                 <Heading />
             </div>
+            
                 <SearchForm 
                     dataSource={this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
+                
                 {
                     this.state.name ? (
                         <BasicInfo
@@ -73,15 +75,17 @@ class App extends Component {
                         />
                     ) : null
                 }
+
                 {
-                    this.state.flavorText ? (
+                    this.state.name ? (
                         <FlavorText
                             flavorText={this.state.flavorText}
                         />
                     ) : null
                 }
+
                 {
-                    this.state.stats ? (
+                    this.state.name ? (
                         <Stats
                             id={this.state.id}
                             stats={this.state.stats}
@@ -183,6 +187,7 @@ class App extends Component {
         })
         .catch((error) => {
             this.setState({
+                name: null,
                 errorMessage: 'Sorry, this pokemon is not in the API!'
             });
         });

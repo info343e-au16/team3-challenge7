@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Row, Col } from 'react-materialize';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 class Stats extends React.Component {
     render() {
@@ -7,22 +7,22 @@ class Stats extends React.Component {
                 <div className="container"> 
                     <h2>Base Stats</h2>
                     <Table>
-                        <thead>
-                            <tr>
-                                <th>Stat</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                            <TableRow>
+                                <TableHeaderColumn>Stat</TableHeaderColumn>
+                                <TableHeaderColumn>Value</TableHeaderColumn>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody displayRowCheckbox={false}>
                             {
                             this.props.stats.map((stats) => (
-                                <tr key={stats.stat.name}>
-                                    <td>{stats.stat.name}</td>
-                                    <td>{stats.base_stat}</td>
-                                </tr>
+                                <TableRow key={stats.stat.name}>
+                                    <TableRowColumn>{stats.stat.name}</TableRowColumn>
+                                    <TableRowColumn>{stats.base_stat}</TableRowColumn>
+                                </TableRow>
                             ))
                             }
-                        </tbody>
+                        </TableBody>
                     </Table>
                 </div>
             );
