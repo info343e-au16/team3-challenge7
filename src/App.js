@@ -61,20 +61,30 @@ class App extends Component {
                     dataSource={this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
-                
-                {
-                    this.state.name ? (
-                        <BasicInfo
-                            id={this.state.id} 
-                            name={this.state.name}
-                            spritePath={this.state.spritePath}
-                            types={this.state.types}
-                            height={this.state.height}
-                            weight={this.state.weight}
-                            onCatch={(name) => this.catchPokemon(name)}
-                        />
-                    ) : null
-                }
+                <Row>
+                    <Col s={6}>
+                        {
+                            this.state.name ? (
+                                <BasicInfo
+                                    id={this.state.id} 
+                                    name={this.state.name}
+                                    spritePath={this.state.spritePath}
+                                    types={this.state.types}
+                                    height={this.state.height}
+                                    weight={this.state.weight}
+                                    onCatch={(name) => this.catchPokemon(name)}
+                                />
+                            ) : null
+                        }
+                    </Col>
+                    <Col s={12} m={6}>
+                        <Catch
+                        catch={this.state.catch}
+                        onClick={(name) => this.searchPokemon(name.toLowerCase())}
+                        onDeleteClick={(name) => this.removePokemon(name)}
+                        /> 
+                    </Col>
+                </Row>
 
                 {
                     this.state.name ? (
@@ -112,12 +122,6 @@ class App extends Component {
                     ) : null
                 }
 
-                <Catch
-                    catch={this.state.catch}
-                    onClick={(name) => this.searchPokemon(name.toLowerCase())}
-                    onDeleteClick={(name) => this.removePokemon(name)}
-                /> 
-            
                 {
                     this.state.name ? (
                         <Footer />

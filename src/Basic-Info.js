@@ -22,7 +22,7 @@ class BasicInfo extends React.Component {
                     
                     <audio autoPlay controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
                     <div>
-                     <RaisedButton secondary={true} label="Catch!"
+                     <RaisedButton primary={true} label="Catch!"
                             onClick={(e) => this.catch(e)} />
                      </div>
                 </div>

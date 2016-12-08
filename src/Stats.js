@@ -9,7 +9,7 @@ class Stats extends React.Component {
                     <Table>
                         <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                             <TableRow>
-                                <TableHeaderColumn>Stat</TableHeaderColumn>
+                                <TableHeaderColumn>Type</TableHeaderColumn>
                                 <TableHeaderColumn>Value</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>

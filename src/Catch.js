@@ -1,9 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-
-const style = {
-  margin: 12,
-};
+import { Row, Col } from 'react-materialize';
 
 class Catch extends React.Component {
     render() {
@@ -16,8 +13,10 @@ class Catch extends React.Component {
             <div className="container">
                 <ul>
                 <h2>My Pokemon</h2>
+                <Row>
                     {
                         this.props.catch.map((name) => (
+                            <Col s={4} m={6}>
                             <li key={name}>
                                 <img src="https://veekun.com/dex/media/items/poke-ball.png" alt="pokeball"/> 
                                 <div>
@@ -25,10 +24,11 @@ class Catch extends React.Component {
                                         {name}
                                     </a>
                                 </div>
-                                <RaisedButton style={style} label="Release" onClick={(e) => this.onDeleteClick(name)} />
-                            </li>
+                                <RaisedButton secondary={true} className="button" label="Release" onClick={(e) => this.onDeleteClick(name)} />
+                            </li></Col>
                         ))
                     }
+                    </Row>
                 </ul>
             </div>
         );

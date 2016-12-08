@@ -55,3 +55,8 @@ form {
 .evoSprite {
   cursor: pointer;
 }
+
+.button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
