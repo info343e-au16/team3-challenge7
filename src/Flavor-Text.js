@@ -5,7 +5,7 @@ import React from 'react';
 class FlavorText extends React.Component {
     render() {
             return (
-                <div> 
+                <div className="container"> 
                     <p>{this.props.flavorText}</p>
                 </div>
             );

@@ -3,9 +3,11 @@ import React from 'react';
 class Heading extends React.Component {
     render() {
         return (
-            <header>
-                <h1>Pokémon Pokédex</h1>
-            </header>
+            <div className="container">
+                <header>
+                        <h1>Pokémon Pokédex</h1>
+                </header>
+            </div>
         );
     }
 }
