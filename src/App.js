@@ -10,13 +10,9 @@ import Catch from './Catch.js';
 import Footer from './Footer.js';
 import ErrorMessage from './ErrorMessage.js'
 
-// CSS framework
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {deepOrange500} from 'material-ui/styles/colors';
-
-// Grid system
-import { Row, Col } from 'react-materialize';
 
 var BASE_URL = 'http://pokeapi.co/api/v2/';
 var BEGINNING_URL = BASE_URL + 'pokemon/';
@@ -58,71 +54,38 @@ class App extends Component {
             <div className="App-header">
                 <Heading />
             </div>
-            
                 <SearchForm 
                     dataSource={this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
-                
-                <Row>
-                    <Col s={6}>
-                        {
-                            this.state.name ? (
-                                <BasicInfo
-                                    id={this.state.id} 
-                                    name={this.state.name}
-                                    spritePath={this.state.spritePath}
-                                    types={this.state.types}
-                                    height={this.state.height}
-                                    weight={this.state.weight}
-                                    onCatch={(name) => this.catchPokemon(name)}
-                                />
-                            ) : null
-                        }
-                        
-                        {
-                            this.state.name ? (
-                                <FlavorText
-                                    flavorText={this.state.flavorText}
-                                />
-                            ) : null
-                        }  
-
-                    </Col>
-                    <Col s={12} m={6}>
-                        <Catch
-                        catch={this.state.catch}
-                        onClick={(name) => this.searchPokemon(name.toLowerCase())}
-                        onDeleteClick={(name) => this.removePokemon(name)}
-                        /> 
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col s={12} l={6}>
-                        {
-                            this.state.name ? (
-                                <Stats
-                                    id={this.state.id}
-                                    stats={this.state.stats}
-                                />
-                            ) : null
-                        }
-                    </Col>
-                    
-                    <Col s={12} l={6}>
-                        {
-                            this.state.evoPaths ? (
-                                <Evolutions
-                                    id={this.state.id} 
-                                    name={this.state.name}
-                                    evoPaths={this.state.evoPaths}
-                                    onPokeClick={(name) => this.searchPokemon(name)}
-                                />
-                            ) : null
-                        }
-                    </Col>
-                </Row>
+                {
+                    this.state.name ? (
+                        <BasicInfo
+                            id={this.state.id} 
+                            name={this.state.name}
+                            spritePath={this.state.spritePath}
+                            types={this.state.types}
+                            height={this.state.height}
+                            weight={this.state.weight}
+                            onCatch={(name) => this.catchPokemon(name)}
+                        />
+                    ) : null
+                }
+                {
+                    this.state.flavorText ? (
+                        <FlavorText
+                            flavorText={this.state.flavorText}
+                        />
+                    ) : null
+                }
+                {
+                    this.state.stats ? (
+                        <Stats
+                            id={this.state.id}
+                            stats={this.state.stats}
+                        />
+                    ) : null
+                }
 
                 {
                     this.state.errorMessage ? (
@@ -133,11 +96,28 @@ class App extends Component {
                 }
 
                 {
+                    this.state.evoPaths ? (
+                        <Evolutions
+                            id={this.state.id} 
+                            name={this.state.name}
+                            evoPaths={this.state.evoPaths}
+                            onPokeClick={(name) => this.searchPokemon(name)}
+                        />
+                    ) : null
+                }
+
+                <Catch
+                    catch={this.state.catch}
+                    onClick={(name) => this.searchPokemon(name.toLowerCase())}
+                    onDeleteClick={(name) => this.removePokemon(name)}
+                /> 
+            
+                {
                     this.state.name ? (
                         <Footer />
                     ) : null
                 }
-                        
+
           </div>
         </MuiThemeProvider>
         );
@@ -201,7 +181,6 @@ class App extends Component {
         })
         .catch((error) => {
             this.setState({
-                name: null,
                 errorMessage: 'Sorry, this pokemon is not in the API!'
             });
         });

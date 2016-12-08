@@ -1,29 +1,23 @@
 import React from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import './Stats.css';
 
 class Stats extends React.Component {
     render() {
             return (
-                <div className="container"> 
-                    <h2>Base Stats</h2>
-                    <Table>
-                        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                            <TableRow>
-                                <TableHeaderColumn>Type</TableHeaderColumn>
-                                <TableHeaderColumn>Value</TableHeaderColumn>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody displayRowCheckbox={false}>
+                <div> 
+                    <h2>Stats</h2>
+                    <table>
+                        <tbody>
                             {
                             this.props.stats.map((stats) => (
-                                <TableRow key={stats.stat.name}>
-                                    <TableRowColumn>{stats.stat.name}</TableRowColumn>
-                                    <TableRowColumn>{stats.base_stat}</TableRowColumn>
-                                </TableRow>
+                                <tr key={stats.stat.name}>
+                                    <td>{stats.stat.name}</td>
+                                    <td className="right">{stats.base_stat}</td>
+                                </tr>
                             ))
                             }
-                        </TableBody>
-                    </Table>
+                        </tbody>
+                    </table>
                 </div>
             );
     }
