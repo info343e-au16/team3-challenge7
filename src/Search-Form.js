@@ -21,7 +21,7 @@ class SearchForm extends React.Component {
                       dataSource={this.state.dataSource}
                       onUpdateInput={this.handleUpdateInput}
                       filter={AutoComplete.caseInsensitiveFilter}
-                      maxSearchResults={5}
+                      maxSearchResults={6}
                       onNewRequest={(queryValue) => this.onSearch(queryValue)}
                     /> 
                 </div>
