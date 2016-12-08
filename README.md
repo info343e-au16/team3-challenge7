@@ -8,18 +8,20 @@
 * Jonathan Alkan
 
 
-## Short Description:
-Our application allows users to quickly search for pokemon and basic information about that pokemon including their images. 
-You can search the pokemon by name, id, type, moves, evolutionary stages, and other queries. Our users are pokemon players or
-people who are interested in pokemon. Specific features we will have are the ability to "catch" pokemon and save them into a pokedex.
-Moreover, you can quickly see the pokemon's evolutionary stages as well. You can also quickly switch between the different evolution stages. 
+## Short Description: Pokemon Pokedex
+Our application, allows users to quickly search for pokemon and basic information about that pokemon including their images. It will also
+automatically play the pokemon's cry and display their type, moves, and stats. You can search the pokemon by name or id (number) with our 
+auto-complete search bar. Our users are pokemon players or people who are interested in pokemon. Specific features we will have are the 
+ability to "catch" pokemon and save them into a pokedex.We also have a "release" pokemon feature that lets you remove pokemon from your 
+pokedex. Moreover, you can quickly see the pokemon's evolutionary stages and quickly switch between the different evolution stages. 
 
-If a pokemon has three evolutions, the pokemon evolutions will show below. There will be a hover over the evoluntions where you can click on the
-image and it will bring you to the pokemon at that evolution stage. 
+If a pokemon has three evolutions, the pokemon evolutions will show below. There will be a hover feature over the evolutions where you can 
+click on the pokemon's image and it will bring you to the pokemon, at that evolution stage. If the pokemon has abnormal (less than three 
+evolutions) or no evolutions (legendary pokemeons) an error message will be shown.
 
 ## List of libraries, frameworks, and APIs we will use:
 
-We are planning to use PokeAPI, Bootstrap, React.js, and Create React App
+We are planning to use PokeAPI, Bootstrap, React.js, and Create React App. We also used a webpack for a developer server and one for a production server.
 
 ## Create React App README
 
