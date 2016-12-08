@@ -121,16 +121,16 @@ class App extends Component {
                                 />
                             ) : null
                         }
+                        
+                        {
+                            this.state.errorMessage ? (
+                                <ErrorMessage 
+                                    message={this.state.errorMessage}
+                                />
+                            ) : null
+                        }                        
                     </Col>
                 </Row>
-
-                {
-                    this.state.errorMessage ? (
-                        <ErrorMessage 
-                            message={this.state.errorMessage}
-                        />
-                    ) : null
-                }
 
                 {
                     this.state.name ? (

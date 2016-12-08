@@ -7,6 +7,8 @@
 * Jimmy Nguyen
 * Jonathan Alkan
 
+## GitHub Pages
+[https://info343e-au16.github.io/team3-challenge7/](https://info343e-au16.github.io/team3-challenge7/)
 
 ## Short Description: Pokemon Pokedex
 Our application, allows users to quickly search for pokemon and basic information about that pokemon including their images. It will also
