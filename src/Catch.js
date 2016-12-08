@@ -21,7 +21,7 @@ class Catch extends React.Component {
                                         {name}
                                     </a>
                                 </div>
-                            <RaisedButton label="Release" onClick={(e) => this.onDeleteClick(name)} />
+                                <RaisedButton label="Release" onClick={(e) => this.onDeleteClick(name)} />
                             </li>
                         ))
                     }
@@ -29,7 +29,6 @@ class Catch extends React.Component {
             </div>
         );
     }
-
 
     onSaveClick(e, name) {
             e.preventDefault();
