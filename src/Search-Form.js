@@ -1,7 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
-import { Row, Col } from 'react-materialize';
 
 // https://github.com/sindresorhus/pokemon
 import PokemonNames from './pokemon-names.json';

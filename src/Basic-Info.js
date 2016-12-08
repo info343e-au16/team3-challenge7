@@ -1,6 +1,5 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Row, Col } from 'react-materialize';
 
 class BasicInfo extends React.Component {
     render() {
