@@ -15,16 +15,15 @@ class SearchForm extends React.Component {
     
     render() {
             return (
-                <div>
-                <AutoComplete
-                  hintText="Search by Name"
-                  dataSource={this.state.dataSource}
-                  onUpdateInput={this.handleUpdateInput}
-                  filter={AutoComplete.caseInsensitiveFilter}
-                  maxSearchResults={5}
-                  onNewRequest={(queryValue) => this.onSearch(queryValue)}
-                /> 
-                <RaisedButton primary={true} label="Go!" type="submit" />
+                <div className="container">
+                    <AutoComplete
+                      hintText="Search by Name"
+                      dataSource={this.state.dataSource}
+                      onUpdateInput={this.handleUpdateInput}
+                      filter={AutoComplete.caseInsensitiveFilter}
+                      maxSearchResults={5}
+                      onNewRequest={(queryValue) => this.onSearch(queryValue)}
+                    /> 
                 </div>
             );
     }
