@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Catch extends React.Component {
     render() {
@@ -20,7 +21,7 @@ class Catch extends React.Component {
                                         {name}
                                     </a>
                                 </div>
-                                <button id="delete-button" onClick={() => this.onDeleteClick(name)}>Delete</button>
+                            <RaisedButton label="Release" onClick={(e) => this.onDeleteClick(name)} />
                             </li>
                         ))
                     }
