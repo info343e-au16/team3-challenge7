@@ -18,7 +18,7 @@ import {deepOrange500} from 'material-ui/styles/colors';
 // Grid system
 import { Row, Col } from 'react-materialize';
 
-var BASE_URL = 'http://pokeapi.co/api/v2/';
+var BASE_URL = 'https://pokeapi.co/api/v2/';
 var BEGINNING_URL = BASE_URL + 'pokemon/';
 var SPECIES_URL = BASE_URL + 'pokemon-species/';
 
