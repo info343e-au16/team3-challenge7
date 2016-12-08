@@ -16,7 +16,7 @@ class Catch extends React.Component {
                 <Row>
                     {
                         this.props.catch.map((name) => (
-                            <Col s={4} m={6}>
+                            <Col s={4} m={6} key={name}>
                             <li key={name}>
                                 <img src="https://veekun.com/dex/media/items/poke-ball.png" alt="pokeball"/> 
                                 <div>

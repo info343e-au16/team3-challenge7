@@ -333,9 +333,11 @@ class App extends Component {
             evoPaths: null,
             errorMessage: null
         })
-
+        
+        // /pokemon-species/ url does not take in a name with a -
+        var nameParts = pokemon.split('-', 2);
         var url = BEGINNING_URL + pokemon;
-        var speciesUrl  = SPECIES_URL + pokemon;
+        var speciesUrl  = SPECIES_URL + nameParts[0];
 
         this.fetchUrl(url);
         this.fetchSpeciesUrl(speciesUrl);
