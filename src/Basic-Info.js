@@ -1,14 +1,13 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Row, Col } from 'react-materialize';
 
 class BasicInfo extends React.Component {
     render() {
             return (
-                <div className="container"> 
-                    <h2>{this.props.name}</h2>
+                <div> 
+                    <h2>No. {this.props.id} | {this.props.name}</h2>
                 
-                    <img alt={this.props.name + " sprite"} src={this.props.spritePath} />              
+                    <img alt={this.props.name + " sprite"} src={this.props.spritePath} />
                 
                     <div>
                     {
@@ -22,7 +21,7 @@ class BasicInfo extends React.Component {
                     
                     <audio autoPlay controls src={"https://veekun.com/dex/media/pokemon/cries/" + this.props.id + ".ogg"}></audio>
                     <div>
-                     <RaisedButton primary={true} label="Catch!"
+                     <RaisedButton secondary={true} label="Catch!"
                             onClick={(e) => this.catch(e)} />
                      </div>
                 </div>

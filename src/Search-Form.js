@@ -1,7 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
-import { Row, Col } from 'react-materialize';
 
 // https://github.com/sindresorhus/pokemon
 import PokemonNames from './pokemon-names.json';
@@ -17,15 +16,16 @@ class SearchForm extends React.Component {
     
     render() {
             return (
-                <div className="container">
-                    <AutoComplete
-                      hintText="Search by Name"
-                      dataSource={this.state.dataSource}
-                      onUpdateInput={this.handleUpdateInput}
-                      filter={AutoComplete.caseInsensitiveFilter}
-                      maxSearchResults={5}
-                      onNewRequest={(queryValue) => this.onSearch(queryValue)}
-                    /> 
+                <div>
+                <AutoComplete
+                  hintText="Search by Name"
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                  filter={AutoComplete.caseInsensitiveFilter}
+                  maxSearchResults={5}
+                  onNewRequest={(queryValue) => this.onSearch(queryValue)}
+                /> 
+                <RaisedButton primary={true} label="Go!" type="submit" />
                 </div>
             );
     }
