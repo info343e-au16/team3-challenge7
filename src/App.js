@@ -10,10 +10,12 @@ import Catch from './Catch.js';
 import Footer from './Footer.js';
 import ErrorMessage from './ErrorMessage.js'
 
+// CSS framework
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {deepOrange500} from 'material-ui/styles/colors';
 
+// Grid system
 import { Row, Col } from 'react-materialize';
 
 var BASE_URL = 'http://pokeapi.co/api/v2/';
@@ -61,6 +63,7 @@ class App extends Component {
                     dataSource={this.state.dataSource}
                     onSearch={(pokemon) => this.searchPokemon(pokemon)}
                 />
+                
                 <Row>
                     <Col s={6}>
                         {
@@ -106,6 +109,7 @@ class App extends Component {
                             ) : null
                         }
                     </Col>
+                    
                     <Col s={12} l={6}>
                         {
                             this.state.evoPaths ? (
@@ -133,7 +137,7 @@ class App extends Component {
                         <Footer />
                     ) : null
                 }
-
+                        
           </div>
         </MuiThemeProvider>
         );
